@@ -1,19 +1,21 @@
+#include "Contact.hpp"
 #include <string>
+#include <iostream>
+#include <iomanip>
 
 class PhoneBook
 {
 private:
-	/* data */
-	std::string numArr[8]
+	Contact	contacts[8];
+	int		contact_count;
+
 public:
-	PhoneBook(/* args */);
+	PhoneBook();
 	~PhoneBook();
+
+	int 	GetContactCount() const;
+	void	AddContact(const Contact& contact);
+	std::string	TruncateText(const std::string& text, std::string::size_type length) const;
+	void	DisplayContacts() const;
+	void	DisplayOneContact(int idx) const;
 };
-
-PhoneBook::PhoneBook(/* args */)
-{
-}
-
-PhoneBook::~PhoneBook()
-{
-}

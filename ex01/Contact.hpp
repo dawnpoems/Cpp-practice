@@ -2,19 +2,22 @@
 #define CONTACT_HPP
 
 #include <string>
+#include <iostream>
 
 class Contact
 {
 private:
-	int			my_idx_;
-	std::string	first_name_;
-	std::string	last_name_;
-	std::string	nickname_;
-	std::string	phone_number_;
-	std::string	darkest_secret_;
+	int			my_idx;
+	std::string	first_name;
+	std::string	last_name;
+	std::string	nickname;
+	std::string	phone_number;
+	std::string	darkest_secret;
 
 public:
 	Contact();
+	Contact(const int idx, const std::string& first_name, const std::string& last_name, const std::string& nick_name, const std::string& phone_number, const std::string& darkest_secret);
+	~Contact();
 
 	void	SetMyIdx(const int idx);
 	void	SetFirstName(const std::string& first_name);

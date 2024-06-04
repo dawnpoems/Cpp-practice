@@ -4,67 +4,80 @@ Contact::Contact()
 {
 }
 
+Contact::Contact(const int idx, const std::string& first_name, const std::string& last_name, const std::string& nick_name, const std::string& phone_number, const std::string& darkest_secret)
+	: my_idx(idx), first_name(first_name), last_name(last_name), nickname(nick_name), phone_number(phone_number), darkest_secret(darkest_secret)
+{
+}
+
+Contact::~Contact()
+{
+}
+
 void Contact::SetMyIdx(const int idx)
 {
-	my_idx_ = idx;
+	this->my_idx = idx;
 }
 
 void Contact::SetFirstName(const std::string& first_name)
 {
-	first_name_ = first_name;
+	this->first_name = first_name;
 }
 
 void Contact::SetLastName(const std::string& last_name)
 {
-	last_name_ = last_name;
+	this->last_name = last_name;
 }
 
 void Contact::SetNickname(const std::string& nick_name)
 {
-	nickname_ = nick_name;
+	this->nickname = nick_name;
 }
 
 void Contact::SetPhoneNumber(const std::string& phone_number)
 {
-	phone_number_ = phone_number;
+	this->phone_number = phone_number;
 }
 
 void Contact::SetDarkestSecret(const std::string& darkest_secret)
 {
-	darkest_secret_ = darkest_secret;
+	this->darkest_secret = darkest_secret;
 }
 
 const int& Contact::GetMyIdx() const
 {
-	return my_idx_;
+	return this->my_idx;
 }
 
 const std::string& Contact::GetFirstName() const
 {
-	return first_name_;
+	return this->first_name;
 }
 
 const std::string& Contact::GetLastName() const
 {
-	return last_name_;
+	return this->last_name;
 }
 
 const std::string& Contact::GetNickname() const
 {
-	return nickname_;
+	return this->nickname;
 }
 
 const std::string& Contact::GetPhoneNumber() const
 {
-	return phone_number_;
+	return this->phone_number;
 }
 
 const std::string& Contact::GetDarkestSecret() const
 {
-	return darkest_secret_;
+	return this->darkest_secret;
 }
 
 void Contact::DisplayOneContact() const
 {
-	// Implementation goes here
+	std::cout << "First name: " << this->first_name << std::endl;
+	std::cout << "Last name: " << this->last_name << std::endl;
+	std::cout << "Nickname: " << this->nickname << std::endl;
+	std::cout << "Phone number: " << this->phone_number << std::endl;
+	std::cout << "Darkest secret: " << this->darkest_secret << std::endl;
 }
