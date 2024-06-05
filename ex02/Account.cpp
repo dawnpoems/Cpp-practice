@@ -1,8 +1,5 @@
 #include "Account.hpp"
 #include <iostream>
-#include <chrono>
-#include <iomanip>
-#include <sstream>
 #include <ctime>
 
 int Account::_nbAccounts = 0;
@@ -79,13 +76,16 @@ void Account::displayStatus() const {
 }
 
 void Account::_displayTimestamp() {
-	std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
-	std::time_t time = std::chrono::system_clock::to_time_t(now);
-	std::tm* tm = std::localtime(&time);
+	// 현재 시간을 time_t 객체로 받아오기
+    std::time_t now = std::time(0);
 
-	std::ostringstream oss;
-	oss << std::put_time(tm, "[%Y%m%d_%H%M%S] ");
-	std::string timestamp = oss.str();
+    // time_t를 tm 구조체로 변환
+    std::tm* now_tm = std::localtime(&now);
 
-	std::cout << timestamp;
+    // 시간 데이터를 문자열로 형식화
+    char buffer[20];
+    std::strftime(buffer, sizeof(buffer), "[%Y%m%d_%H%M%S] ", now_tm);
+
+    // 형식화된 문자열 출력
+    std::cout << buffer;
 }
