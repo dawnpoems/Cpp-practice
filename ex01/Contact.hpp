@@ -7,7 +7,6 @@
 class Contact
 {
 private:
-	int			my_idx;
 	std::string	first_name;
 	std::string	last_name;
 	std::string	nickname;
@@ -16,7 +15,7 @@ private:
 
 public:
 	Contact();
-	Contact(const int idx, const std::string& first_name, const std::string& last_name, const std::string& nick_name, const std::string& phone_number, const std::string& darkest_secret);
+	Contact(const std::string& first_name, const std::string& last_name, const std::string& nick_name, const std::string& phone_number, const std::string& darkest_secret);
 	~Contact();
 
 	void	SetMyIdx(const int idx);

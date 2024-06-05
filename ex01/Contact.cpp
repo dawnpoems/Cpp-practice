@@ -4,18 +4,13 @@ Contact::Contact()
 {
 }
 
-Contact::Contact(const int idx, const std::string& first_name, const std::string& last_name, const std::string& nick_name, const std::string& phone_number, const std::string& darkest_secret)
-	: my_idx(idx), first_name(first_name), last_name(last_name), nickname(nick_name), phone_number(phone_number), darkest_secret(darkest_secret)
+Contact::Contact(const std::string& first_name, const std::string& last_name, const std::string& nick_name, const std::string& phone_number, const std::string& darkest_secret)
+	: first_name(first_name), last_name(last_name), nickname(nick_name), phone_number(phone_number), darkest_secret(darkest_secret)
 {
 }
 
 Contact::~Contact()
 {
-}
-
-void Contact::SetMyIdx(const int idx)
-{
-	this->my_idx = idx;
 }
 
 void Contact::SetFirstName(const std::string& first_name)
@@ -41,11 +36,6 @@ void Contact::SetPhoneNumber(const std::string& phone_number)
 void Contact::SetDarkestSecret(const std::string& darkest_secret)
 {
 	this->darkest_secret = darkest_secret;
-}
-
-const int& Contact::GetMyIdx() const
-{
-	return this->my_idx;
 }
 
 const std::string& Contact::GetFirstName() const
