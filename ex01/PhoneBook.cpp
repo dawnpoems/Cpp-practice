@@ -22,11 +22,6 @@ std::string PhoneBook::TruncateText(const std::string& text, std::string::size_t
 	{
 		return text.substr(0, length - 1) + ".";
 	}
-	else if (text.length() < length)
-	{
-		std::string paddedText = std::string(length - text.length(), ' ') + text;
-		return paddedText;
-	}
 	else
 	{
 		return text;
@@ -60,10 +55,10 @@ void PhoneBook::DisplayContacts() const
 	std::cout << "     index|first name| last name|  nickname" << std::endl;
 	for (int i = 0; i < this->contact_count; i++)
 	{
-		std::cout << TruncateText(std::to_string(i + 1), 10) << "|";
-		std::cout << TruncateText(this->contacts[i].GetFirstName(), 10) << "|";
-		std::cout << TruncateText(this->contacts[i].GetLastName(), 10) << "|";
-		std::cout << TruncateText(this->contacts[i].GetNickname(), 10) << std::endl;
+		std::cout << std::setw(10) << std::to_string(i + 1) << "|";
+		std::cout << std::setw(10) << TruncateText(this->contacts[i].GetFirstName(), 10) << "|";
+		std::cout << std::setw(10) << TruncateText(this->contacts[i].GetLastName(), 10) << "|";
+		std::cout << std::setw(10) << TruncateText(this->contacts[i].GetNickname(), 10) << std::endl;
 	}
 }
 
