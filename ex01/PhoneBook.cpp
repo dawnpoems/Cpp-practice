@@ -1,7 +1,7 @@
-#ifndef PHONEBOOK_CPP
-#define PHONEBOOK_CPP
-
+#include <iostream>
 #include "PhoneBook.hpp"
+#include <string>
+#include <iomanip>
 
 PhoneBook::PhoneBook() : contact_count(0)
 {
@@ -50,15 +50,17 @@ void PhoneBook::DisplayContacts() const
 	if (this->contact_count == 0)
 	{
 		std::cout << "No contacts." << std::endl;
-		return;
 	}
-	std::cout << "     index|first name| last name|  nickname" << std::endl;
-	for (int i = 0; i < this->contact_count; i++)
+	else
 	{
-		std::cout << std::setw(10) << std::to_string(i + 1) << "|";
-		std::cout << std::setw(10) << TruncateText(this->contacts[i].GetFirstName(), 10) << "|";
-		std::cout << std::setw(10) << TruncateText(this->contacts[i].GetLastName(), 10) << "|";
-		std::cout << std::setw(10) << TruncateText(this->contacts[i].GetNickname(), 10) << std::endl;
+		std::cout << "     index|first name| last name|  nickname" << std::endl;
+		for (int i = 0; i < this->contact_count; i++)
+		{
+			std::cout << std::setw(10) << std::to_string(i + 1) << "|";
+			std::cout << std::setw(10) << TruncateText(this->contacts[i].GetFirstName(), 10) << "|";
+			std::cout << std::setw(10) << TruncateText(this->contacts[i].GetLastName(), 10) << "|";
+			std::cout << std::setw(10) << TruncateText(this->contacts[i].GetNickname(), 10) << std::endl;
+		}
 	}
 }
 
@@ -70,8 +72,12 @@ void PhoneBook::DisplayOneContact(int idx) const
 	}
 	else
 	{
-		this->contacts[idx - 1].DisplayOneContact();
+		Contact contact = this->contacts[idx - 1];
+		std::cout << "[Contact Details]" << std::endl;
+		std::cout << "First name: " << contact.GetFirstName() << std::endl;
+		std::cout << "Last name: " << contact.GetLastName() << std::endl;
+		std::cout << "Nickname: " << contact.GetNickname() << std::endl;
+		std::cout << "Phone number: " << contact.GetPhoneNumber() << std::endl;
+		std::cout << "Darkest secret: " << contact.GetDarkestSecret() << std::endl;
 	}
 }
-
-#endif

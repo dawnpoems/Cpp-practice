@@ -1,6 +1,4 @@
 #include "Contact.hpp"
-#include <string>
-#include <iomanip>
 
 class PhoneBook
 {
@@ -17,5 +15,4 @@ public:
 	int		GetContactCount() const;
 	void	DisplayContacts() const;
 	void	DisplayOneContact(int idx) const;
-	
 };
