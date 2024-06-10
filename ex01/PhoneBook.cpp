@@ -2,6 +2,7 @@
 #include "PhoneBook.hpp"
 #include <string>
 #include <iomanip>
+#include <sstream>
 
 PhoneBook::PhoneBook() : contact_count(0)
 {
@@ -54,8 +55,13 @@ void PhoneBook::DisplayContacts() const
 	else
 	{
 		std::cout << "     index|first name| last name|  nickname" << std::endl;
+
 		for (int i = 0; i < this->contact_count; i++)
 		{
+			std::ostringstream oss; // 문자열 스트림 생성
+			oss << (i + 1); // 정수를 스트림에 쓴다
+			std::string indexStr = oss.str(); // 스트림 내용을 문자열로 변환
+			
 			std::cout << std::setw(10) << std::to_string(i + 1) << "|";
 			std::cout << std::setw(10) << TruncateText(this->contacts[i].GetFirstName(), 10) << "|";
 			std::cout << std::setw(10) << TruncateText(this->contacts[i].GetLastName(), 10) << "|";
