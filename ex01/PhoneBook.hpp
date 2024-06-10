@@ -1,3 +1,6 @@
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
+
 #include "Contact.hpp"
 
 class PhoneBook
@@ -16,3 +19,5 @@ public:
 	void	DisplayContacts() const;
 	void	DisplayOneContact(int idx) const;
 };
+
+#endif
