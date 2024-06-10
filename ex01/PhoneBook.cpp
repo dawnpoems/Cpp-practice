@@ -58,11 +58,11 @@ void PhoneBook::DisplayContacts() const
 
 		for (int i = 0; i < this->contact_count; i++)
 		{
-			std::ostringstream oss; // 문자열 스트림 생성
-			oss << (i + 1); // 정수를 스트림에 쓴다
-			std::string indexStr = oss.str(); // 스트림 내용을 문자열로 변환
-			
-			std::cout << std::setw(10) << std::to_string(i + 1) << "|";
+			std::ostringstream oss;
+			oss << (i + 1);
+			std::string indexStr = oss.str();
+
+			std::cout << std::setw(10) << indexStr << "|";
 			std::cout << std::setw(10) << TruncateText(this->contacts[i].GetFirstName(), 10) << "|";
 			std::cout << std::setw(10) << TruncateText(this->contacts[i].GetLastName(), 10) << "|";
 			std::cout << std::setw(10) << TruncateText(this->contacts[i].GetNickname(), 10) << std::endl;
