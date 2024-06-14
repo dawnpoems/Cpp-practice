@@ -1,9 +1,15 @@
 #include "Zombie.hpp"
 
-int main() {
+int main(int argc, char **argv) {
 	
-	Zombie *horde = zombieHorde(5, "Zombie");
-	for (int i = 0; i < 5; i++)
+	int N(0);
+
+	if (argc != 2) {
+		return 1;
+	}
+	N = atoi(argv[1]);
+	Zombie *horde = zombieHorde(N, "Zombie");
+	for (int i = 0; i < N; i++)
 		horde[i].announce();
 	
 	delete[] horde;

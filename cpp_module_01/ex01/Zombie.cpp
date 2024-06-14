@@ -3,14 +3,17 @@
 
 Zombie::Zombie()
 {
+	std::cout << "A zombie is born." << std::endl;
 }
 
 Zombie::Zombie(std::string name) : name(name)
 {
+	std::cout << this->name << " is born." << std::endl;
 }
 
 Zombie::~Zombie()
 {
+	std::cout << this->name << " is dead." << std::endl;
 }
 
 void Zombie::announce(void)
