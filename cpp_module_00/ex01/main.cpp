@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include "PhoneBook.hpp"
+#include <cstdio>
 
 void check_empty(const std::string &str)
 {
