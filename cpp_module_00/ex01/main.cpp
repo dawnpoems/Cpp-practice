@@ -2,6 +2,19 @@
 #include <sstream>
 #include "PhoneBook.hpp"
 
+void check_empty(const std::string &str)
+{
+	if (str.empty())
+	{
+		std::cout << "Contact field cannot be empty." << std::endl;
+		if (std::cin.eof())
+		{
+			clearerr(stdin);
+			std::cin.clear();
+		}
+	}
+}
+
 void add_contact(PhoneBook &phoneBook)
 {
 	std::string first_name;
@@ -15,36 +28,31 @@ void add_contact(PhoneBook &phoneBook)
 	{
 		std::cout << "Enter first name >> ";
 		std::getline(std::cin, first_name);
-		if (first_name.empty())
-			std::cout << "First name cannot be empty." << std::endl;
+		check_empty(first_name);
 	}
 	while (last_name.empty())
 	{
 		std::cout << "Enter last name >> ";
 		std::getline(std::cin, last_name);
-		if (last_name.empty())
-			std::cout << "Last name cannot be empty." << std::endl;
+		check_empty(last_name);
 	}
 	while (nickname.empty())
 	{
 		std::cout << "Enter nickname >> ";
 		std::getline(std::cin, nickname);
-		if (nickname.empty())
-			std::cout << "Nickname cannot be empty." << std::endl;
+		check_empty(nickname);
 	}
 	while (phone_number.empty())
 	{
 		std::cout << "Enter phone number >> ";
 		std::getline(std::cin, phone_number);
-		if (phone_number.empty())
-			std::cout << "Phone number cannot be empty." << std::endl;
+		check_empty(phone_number);
 	}
 	while (darkest_secret.empty())
 	{
 		std::cout << "Enter darkest secret >> ";
 		std::getline(std::cin, darkest_secret);
-		if (darkest_secret.empty())
-			std::cout << "Darkest secret cannot be empty." << std::endl;
+		check_empty(darkest_secret);
 	}
 	Contact contact(first_name, last_name, nickname, phone_number, darkest_secret);
 	phoneBook.AddContact(contact);
@@ -66,7 +74,14 @@ void search_contact(PhoneBook &phoneBook)
 	if (std::stringstream(command) >> idx && 1 <= idx && idx <= phoneBook.GetContactCount())
 		phoneBook.DisplayOneContact(idx);
 	else
+	{
 		std::cout << "Invalid index." << std::endl;
+		if (std::cin.eof())
+		{
+			clearerr(stdin);
+			std::cin.clear();
+		}
+	}
 }
 
 int main()
@@ -80,17 +95,20 @@ int main()
 		std::getline(std::cin, command);
 
 		if (command == "ADD")
-		{
 			add_contact(phoneBook);
-		}
 		else if (command == "SEARCH")
-		{
 			search_contact(phoneBook);
-		}
 		else if (command == "EXIT")
 			break;
 		else
+		{
 			std::cout << "Invalid command." << std::endl;
+			if (std::cin.eof())
+			{
+				clearerr(stdin);
+				std::cin.clear();
+			}
+		}
 	}
 	return 0;
 }
