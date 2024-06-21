@@ -9,7 +9,7 @@ void check_empty(const std::string &str)
 		std::cout << "Contact field cannot be empty." << std::endl;
 		if (std::cin.eof())
 		{
-			clearerr(stdin);
+			std::clearerr(stdin);
 			std::cin.clear();
 		}
 	}
@@ -78,7 +78,7 @@ void search_contact(PhoneBook &phoneBook)
 		std::cout << "Invalid index." << std::endl;
 		if (std::cin.eof())
 		{
-			clearerr(stdin);
+			std::clearerr(stdin);
 			std::cin.clear();
 		}
 	}
@@ -105,7 +105,7 @@ int main()
 			std::cout << "Invalid command." << std::endl;
 			if (std::cin.eof())
 			{
-				clearerr(stdin);
+				std::clearerr(stdin);
 				std::cin.clear();
 			}
 		}
