@@ -82,10 +82,13 @@ void Account::_displayTimestamp() {
     std::tm* now_tm = std::localtime(&now);
 
 	std::cout << std::setfill('0')
-			<< "[" << (now_tm->tm_year + 1900)
+			<< "["
+			<< (now_tm->tm_year + 1900)
 			<< std::setw(2) << (now_tm->tm_mon + 1)
-			<< std::setw(2) << now_tm->tm_mday << "_"
+			<< std::setw(2) << now_tm->tm_mday
+			<< "_"
 			<< std::setw(2) << now_tm->tm_hour
 			<< std::setw(2) << now_tm->tm_min
-			<< std::setw(2) << now_tm->tm_sec << "] ";
+			<< std::setw(2) << now_tm->tm_sec
+			<< "] ";
 }
