@@ -3,7 +3,6 @@
 
 Harl::Harl()
 {
-
 }
 
 Harl::~Harl()
@@ -47,16 +46,18 @@ void Harl::complain(std::string level)
 	switch (idx_level) {
 		case 0:
 			this->debug();
-			 __attribute__((fallthrough));
+			__attribute__((fallthrough));
 		case 1:
 			this->info();
+			__attribute__((fallthrough));
 		case 2:
 			this->warning();
+			__attribute__((fallthrough));
 		case 3:
 			this->error();
 			break ;
 		default:
-			std::cout << "Invalid Level" << std::endl;
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	}
 }
 

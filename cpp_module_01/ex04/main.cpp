@@ -12,12 +12,12 @@ int main(int argc, char **argv) {
 	std::string s2(argv[3]);
 	std::string outputFilename = filename + ".replace";
 
-	std::ifstream file(filename);
+	std::ifstream file(filename.c_str());
 	if (!file.is_open()) {
 		std::cout << "Error opening file" << std::endl;
 		return (1);
 	}
-	std::ofstream output(outputFilename);
+	std::ofstream output(outputFilename.c_str());
 	if (!output.is_open()) {
 		std::cout << "Error creating output file" << std::endl;
 		return (1);
