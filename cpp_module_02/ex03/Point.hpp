@@ -8,14 +8,15 @@ private:
 	Fixed x;
 	Fixed y;
 public:
-	Point(/* args */);
-	Point(Fixed const x, Fixed const y);
+	Point();
+	Point(int const x, int const y);
+	Point(float const x, float const y);
 	Point(Point const &point);
 	Point &operator=(Point const &point);
 	~Point();
 
-	Fixed getX() const { return x; }
-	Fixed getY() const { return y; }
+	Fixed getX() const;
+	Fixed getY() const;
 };
 
 #endif // POINT_HPP
