@@ -63,21 +63,21 @@ Fixed& Fixed::operator=(const Fixed& other)
 Fixed Fixed::operator+(const Fixed& other) const
 {
 	Fixed ret = Fixed();
-	ret.setRawBits(this->getRawBits() + other.getRawBits());
+	ret.setRawBits(this->value + other.getRawBits());
 	return (ret);
 }
 
 Fixed Fixed::operator-(const Fixed& other) const
 {
 	Fixed ret = Fixed();
-	ret.setRawBits(this->getRawBits() - other.getRawBits());
+	ret.setRawBits(this->value - other.getRawBits());
 	return (ret);
 }
 
 Fixed Fixed::operator*(const Fixed& other) const
 {
 	Fixed ret = Fixed();
-	ret.setRawBits((this->getRawBits() * other.value) >> Fixed::bits);
+	ret.setRawBits((this->value * other.getRawBits()) >> Fixed::bits);
 	return (ret);
 }
 

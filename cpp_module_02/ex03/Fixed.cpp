@@ -62,22 +62,30 @@ Fixed& Fixed::operator=(const Fixed& other)
 
 Fixed Fixed::operator+(const Fixed& other) const
 {
-	return (Fixed(this->toFloat() + other.toFloat()));
+	Fixed ret = Fixed();
+	ret.setRawBits(this->value + other.getRawBits());
+	return (ret);
 }
 
 Fixed Fixed::operator-(const Fixed& other) const
 {
-	return (Fixed(this->toFloat() - other.toFloat()));
+	Fixed ret = Fixed();
+	ret.setRawBits(this->value - other.getRawBits());
+	return (ret);
 }
 
 Fixed Fixed::operator*(const Fixed& other) const
 {
-	return (Fixed(this->toFloat() * other.toFloat()));
+	Fixed ret = Fixed();
+	ret.setRawBits((this->value * other.getRawBits()) >> Fixed::bits);
+	return (ret);
 }
 
 Fixed Fixed::operator/(const Fixed& other) const
 {
-	return (Fixed(this->toFloat() / other.toFloat()));
+	Fixed ret = Fixed();
+	ret.setRawBits((this->getRawBits() << Fixed::bits) / other.getRawBits());
+	return (ret);
 }
 
 Fixed& Fixed::operator++()
