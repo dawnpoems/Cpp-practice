@@ -3,8 +3,6 @@
 
 Harl::Harl()
 {
-
-
 }
 
 Harl::~Harl()
