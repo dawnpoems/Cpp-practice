@@ -18,5 +18,12 @@ int main()
 		club.setType("some other type of club");
 		jim.attack();
 	}
+
+	{
+		// HumanA noWeaponA("noWeapon");
+		// noWeaponA.attack();
+		HumanB noWeaponB("noWeapon");
+		noWeaponB.attack();
+	}
 	return 0;
 }
