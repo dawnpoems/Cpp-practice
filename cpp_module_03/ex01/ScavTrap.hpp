@@ -9,14 +9,14 @@ class ScavTrap : public ClapTrap
 private:
 	/* data */
 public:
-	ScavTrap(/* args */);
+	ScavTrap();
 	ScavTrap(std::string const &name);
 	ScavTrap(ScavTrap const &clapTrap);
 	ScavTrap &operator=(ScavTrap const &clapTrap);
 	~ScavTrap();
 
 	void guardGate();
-	void attack(std::string const & target);
+	void attack(std::string const &target);
 };
 
 #endif

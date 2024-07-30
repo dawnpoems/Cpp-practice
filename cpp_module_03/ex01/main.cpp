@@ -20,7 +20,7 @@ int main( void ) {
 
 	claptrap.attack("You6");
 	claptrap.beRepaired(5);
-	std::cout << "-------------------------------------------------" << std::endl;
+	std::cout << "----------------------start making scavtrap----------------------" << std::endl;
 
 	ScavTrap scavtrap("scavTrap");
 	for (int i = 0; i < 30; i++)
