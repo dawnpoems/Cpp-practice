@@ -1,20 +1,18 @@
 #include "ScavTrap.hpp"
 #include <iostream>
 
-ScavTrap::ScavTrap() : ClapTrap()
+const int ScavTrap::_unitHP = 100;
+const int ScavTrap::_unitEP = 50;
+const int ScavTrap::_unitAD = 20;
+
+ScavTrap::ScavTrap() : ClapTrap("ScavTrap", _unitHP, _unitEP, _unitAD)
 {
 	std::cout << "ScavTrap constructor called" << std::endl;
-	this->hitPoints = 100;
-	this->energyPoints = 50;
-	this->attackDamage = 20;
 }
 
-ScavTrap::ScavTrap(std::string const &name) : ClapTrap(name)
+ScavTrap::ScavTrap(std::string const &name) : ClapTrap(name, _unitHP, _unitEP, _unitAD)
 {
 	std::cout << "ScavTrap constructor called" << std::endl;
-	this->hitPoints = 100;
-	this->energyPoints = 50;
-	this->attackDamage = 20;
 }
 
 ScavTrap::ScavTrap(ScavTrap const &scavTrap)
@@ -26,10 +24,7 @@ ScavTrap::ScavTrap(ScavTrap const &scavTrap)
 ScavTrap &ScavTrap::operator=(ScavTrap const &scavTrap)
 {
 	std::cout << "ScavTrap assignation operator called" << std::endl;
-	this->name = scavTrap.name;
-	this->hitPoints = scavTrap.hitPoints;
-	this->energyPoints = scavTrap.energyPoints;
-	this->attackDamage = scavTrap.attackDamage;
+	ClapTrap::operator=(scavTrap);
 	return (*this);
 }
 
@@ -43,6 +38,11 @@ void ScavTrap::attack(std::string const &target)
 	if (this->energyPoints <= 0)
 	{
 		std::cout << "ScavTrap " << this->name << " has no energy points left!" << std::endl;
+		return ;
+	}
+	if (this->hitPoints <= 0)
+	{
+		std::cout << "ScavTrap " << this->name << " has no hit points left!" << std::endl;
 		return ;
 	}
 	this->energyPoints--;

@@ -11,11 +11,12 @@ protected:
 	int energyPoints;
 	int attackDamage;
 public:
-	ClapTrap(/* args */);
+	ClapTrap();
 	ClapTrap(std::string const &name);
+	ClapTrap(std::string const &name, int hitPoints, int energyPoints, int attackDamage);
 	ClapTrap(ClapTrap const &clapTrap);
 	ClapTrap &operator=(ClapTrap const &clapTrap);
-	virtual ~ClapTrap();
+	~ClapTrap();
 
 	void attack(std::string const & target);
 	void takeDamage(unsigned int amount);

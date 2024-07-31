@@ -1,20 +1,32 @@
 #include <iostream>
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main( void ) {
 
-	FragTrap fragtrap("frag");
+	std::cout << "-------------------Energy points From ScavTrep(50)----------------------" << std::endl;
+	std::cout << "-------------------Attack damage From FragTrep(30)----------------------" << std::endl;
 
-	for (int i = 0; i < 60; i++)
+	DiamondTrap diamondtrap1("diamond1");
+
+	for (int i = 0; i < 30; i++)
 	{
-		fragtrap.attack("You" + std::to_string(i));
-		fragtrap.beRepaired(5);
+		diamondtrap1.attack("You" + std::to_string(i));
+		diamondtrap1.beRepaired(5);
 	}
-	
-	fragtrap.takeDamage(10);
-	fragtrap.highFivesGuys();
+
+	std::cout << "-------------------Hit points From FlagTrep(100)----------------------" << std::endl;
+
+	DiamondTrap diamondtrap2("diamond2");
+
+	diamondtrap2.takeDamage(90);
+	diamondtrap2.attack("You");
+	diamondtrap2.takeDamage(10);
+	diamondtrap2.attack("You");
+
+	std::cout << "----------------------------------------------------------------------" << std::endl;
+	diamondtrap1.guardGate();
+	diamondtrap1.highFivesGuys();
+	diamondtrap1.whoAmI();
 
 	return 0;
 }

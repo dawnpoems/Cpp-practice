@@ -1,39 +1,35 @@
 #include "DiamondTrap.hpp"
-
 #include "ClapTrap.hpp"
 
 #include <iostream>
 
 DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap()
 {
+	std::cout << "DiamondTrap constructor called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string const &name) : ClapTrap(name), ScavTrap(name), FragTrap(name)
+DiamondTrap::DiamondTrap(std::string const &name)
+: ClapTrap(name + "_clap_name", FragTrap::_unitHP, ScavTrap::_unitEP, FragTrap::_unitAD), ScavTrap(name), FragTrap(name), name(name)
 {
-	this->name = name;
-	this->hitPoints = FragTrap::hitPoints;
-	this->energyPoints = ScavTrap::energyPoints;
-	this->attackDamage = FragTrap::attackDamage;
-	std::cout << "DiamondTrap " << this->name << " is born!" << std::endl;
+	std::cout << "DiamondTrap constructor called" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap const &diamondTrap)
 {
+	std::cout << "DiamondTrap copy constructor called" << std::endl;
 	*this = diamondTrap;
 }
 
 DiamondTrap &DiamondTrap::operator=(DiamondTrap const &diamondTrap)
 {
-	this->name = diamondTrap.name;
-	this->hitPoints = diamondTrap.hitPoints;
-	this->energyPoints = diamondTrap.energyPoints;
-	this->attackDamage = diamondTrap.attackDamage;
+	std::cout << "DiamondTrap assignation operator called" << std::endl;
+	ClapTrap::operator=(diamondTrap);
 	return (*this);
 }
 
 DiamondTrap::~DiamondTrap()
 {
-	std::cout << "DiamondTrap " << this->name << " is dead!" << std::endl;
+	std::cout << "DiamondTrap destructor called" << std::endl;
 }
 
 void DiamondTrap::whoAmI()
@@ -41,3 +37,7 @@ void DiamondTrap::whoAmI()
 	std::cout << "I am " << this->name << " and my ClapTrap name is " << ClapTrap::name << std::endl;
 }
 
+void DiamondTrap::attack(std::string const &target)
+{
+	ScavTrap::attack(target);
+}
