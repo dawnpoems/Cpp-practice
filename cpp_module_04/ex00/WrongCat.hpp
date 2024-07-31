@@ -8,7 +8,7 @@ class WrongCat : public WrongAnimal
 private:
 	/* data */
 public:
-	WrongCat(/* args */);
+	WrongCat();
 	WrongCat(WrongCat const &wrongCat);
 	WrongCat &operator=(WrongCat const &wrongCat);
 	~WrongCat();

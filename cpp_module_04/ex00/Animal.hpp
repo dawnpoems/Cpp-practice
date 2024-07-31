@@ -7,8 +7,9 @@ class Animal
 {
 protected:
 	std::string type;
+
 public:
-	Animal(/* args */);
+	Animal();
 	Animal(std::string const &type);
 	Animal(Animal const &animal);
 	Animal &operator=(Animal const &animal);

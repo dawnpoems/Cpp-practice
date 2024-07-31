@@ -9,7 +9,6 @@ int main()
 	const int arraySize = 10;
 	Animal* animals[arraySize];
 
-	// Fill the array with Dog and Cat objects
 	for (int i = 0; i < arraySize; i++)
 	{
 		if (i < arraySize / 2)

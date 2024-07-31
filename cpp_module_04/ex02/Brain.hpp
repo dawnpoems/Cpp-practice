@@ -7,9 +7,9 @@ class Brain
 {
 private:
 	std::string ideas[100];
-	/* data */
+
 public:
-	Brain(/* args */);
+	Brain();
 	Brain(Brain const &brain);
 	Brain &operator=(Brain const &brain);
 	~Brain();

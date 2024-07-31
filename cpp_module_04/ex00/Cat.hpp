@@ -8,7 +8,7 @@ class Cat : public Animal
 private:
 	/* data */
 public:
-	Cat(/* args */);
+	Cat();
 	Cat(Cat const &cat);
 	Cat &operator=(Cat const &cat);
 	~Cat();

@@ -8,7 +8,7 @@ class Dog : public Animal
 private:
 	/* data */
 public:
-	Dog(/* args */);
+	Dog();
 	Dog(Dog const &dog);
 	Dog &operator=(Dog const &dog);
 	~Dog();
