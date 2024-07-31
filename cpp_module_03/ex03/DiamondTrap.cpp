@@ -14,10 +14,9 @@ DiamondTrap::DiamondTrap(std::string const &name)
 	std::cout << "DiamondTrap constructor called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap const &diamondTrap)
+DiamondTrap::DiamondTrap(DiamondTrap const &diamondTrap) : ClapTrap(diamondTrap), ScavTrap(diamondTrap), FragTrap(diamondTrap)
 {
 	std::cout << "DiamondTrap copy constructor called" << std::endl;
-	*this = diamondTrap;
 }
 
 DiamondTrap &DiamondTrap::operator=(DiamondTrap const &diamondTrap)
