@@ -1,5 +1,6 @@
 #include "Fixed.hpp"
 #include <iostream>
+#include <cmath>
 
 Fixed::Fixed() : value(0)
 {
@@ -12,7 +13,7 @@ Fixed::Fixed(int const value)
 
 Fixed::Fixed(float const value)
 {
-	this->value = roundf(value * (1 << Fixed::bits));
+	this->value = std::floor(value * (1 << Fixed::bits) + 0.5f);
 }
 
 Fixed::Fixed(const Fixed& other) 
