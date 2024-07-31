@@ -6,18 +6,13 @@ Cure::Cure() : AMateria("cure")
 {
 }
 
-Cure::Cure(Cure const &cure)
+Cure::Cure(Cure const &cure) : AMateria(cure)
 {
-	*this = cure;
 }
 
 Cure &Cure::operator=(Cure const &cure)
 {
-	if (this != &cure)
-	{
-		this->type = cure.type;
-		this->xp = cure.xp;
-	}
+	AMateria::operator=(cure);
 	return *this;
 }
 

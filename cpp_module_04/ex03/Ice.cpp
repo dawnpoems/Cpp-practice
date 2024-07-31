@@ -5,18 +5,13 @@ Ice::Ice() : AMateria("ice")
 {
 }
 
-Ice::Ice(Ice const &ice)
+Ice::Ice(Ice const &ice) : AMateria(ice)
 {
-	*this = ice;
 }
 
 Ice &Ice::operator=(Ice const &ice)
 {
-	if (this != &ice)
-	{
-		this->type = ice.type;
-		this->xp = ice.xp;
-	}
+	AMateria::operator=(ice);
 	return *this;
 }
 
