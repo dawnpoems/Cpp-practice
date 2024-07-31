@@ -13,8 +13,8 @@ Animal::Animal(std::string const &type) : type(type)
 
 Animal::Animal(Animal const &animal)
 {
-	*this = animal;
 	std::cout << "Animal copy constructor called" << std::endl;
+	*this = animal;
 }
 
 Animal &Animal::operator=(Animal const &animal)
