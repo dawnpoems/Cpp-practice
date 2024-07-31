@@ -2,6 +2,7 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include <sstream>
 
 std::string intToString(int number) {
     std::ostringstream oss;
