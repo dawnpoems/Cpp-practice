@@ -8,9 +8,9 @@ class Dog : public Animal
 {
 private:
 	Brain *brain;
-
+	/* data */
 public:
-	Dog();
+	Dog(/* args */);
 	Dog(Dog const &dog);
 	Dog &operator=(Dog const &dog);
 	~Dog();
