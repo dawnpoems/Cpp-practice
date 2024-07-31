@@ -1,6 +1,13 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include <sstream>
+
+std::string intToString(int number) {
+    std::ostringstream oss;
+    oss << number;
+    return oss.str();
+}
 
 int main( void ) {
 
@@ -25,7 +32,7 @@ int main( void ) {
 	ScavTrap scavtrap("scavTrap");
 	for (int i = 0; i < 30; i++)
 	{
-		scavtrap.attack("You" + std::to_string(i));
+		scavtrap.attack("You" + intToString(i));
 		scavtrap.beRepaired(5);
 	}
 	

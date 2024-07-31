@@ -1,5 +1,12 @@
 #include <iostream>
 #include "DiamondTrap.hpp"
+#include <sstream>
+
+std::string intToString(int number) {
+    std::ostringstream oss;
+    oss << number;
+    return oss.str();
+}
 
 int main( void ) {
 
@@ -10,7 +17,7 @@ int main( void ) {
 
 	for (int i = 0; i < 30; i++)
 	{
-		diamondtrap1.attack("You" + std::to_string(i));
+		diamondtrap1.attack("You" + intToString(i));
 		diamondtrap1.beRepaired(5);
 	}
 

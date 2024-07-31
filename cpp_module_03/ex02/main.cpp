@@ -3,13 +3,19 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
+std::string intToString(int number) {
+    std::ostringstream oss;
+    oss << number;
+    return oss.str();
+}
+
 int main( void ) {
 
 	FragTrap fragtrap("frag");
 
 	for (int i = 0; i < 60; i++)
 	{
-		fragtrap.attack("You" + std::to_string(i));
+		fragtrap.attack("You" + intToString(i));
 		fragtrap.beRepaired(5);
 	}
 	
