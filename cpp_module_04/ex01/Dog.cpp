@@ -3,8 +3,8 @@
 
 Dog::Dog() : Animal("Dog")
 {
-	brain = new Brain();
 	std::cout << "Dog default constructor called" << std::endl;
+	brain = new Brain();
 }
 
 Dog::Dog(Dog const &dog) : Animal(dog)

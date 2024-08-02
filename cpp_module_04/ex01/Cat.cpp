@@ -4,8 +4,8 @@
 
 Cat::Cat() : Animal("Cat")
 {
-	brain = new Brain();
 	std::cout << "Cat default constructor called" << std::endl;
+	brain = new Brain();
 }
 
 Cat::Cat(Cat const &cat) : Animal(cat)
