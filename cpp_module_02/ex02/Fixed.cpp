@@ -13,7 +13,7 @@ Fixed::Fixed(int const value)
 
 Fixed::Fixed(float const value)
 {
-	this->value = std::floor(value * (1 << Fixed::bits) + 0.5f);
+	this->value = roundf(value * (1 << Fixed::bits));
 }
 
 Fixed::Fixed(const Fixed& other) 
