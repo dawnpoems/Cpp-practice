@@ -13,6 +13,7 @@ public :
 	Fixed(int const value);
 	Fixed(float const value);
 	Fixed(Fixed const &fixed);
+	Fixed &operator=(Fixed const &fixed);
 	~Fixed();
 	
 	bool operator>(Fixed const &fixed) const;
@@ -22,7 +23,6 @@ public :
 	bool operator==(Fixed const &fixed) const;
 	bool operator!=(Fixed const &fixed) const;
 
-	Fixed &operator=(Fixed const &fixed);
 	Fixed operator+(Fixed const &fixed) const;
 	Fixed operator-(Fixed const &fixed) const;
 	Fixed operator*(Fixed const &fixed) const;
@@ -38,11 +38,12 @@ public :
 	static Fixed &max(Fixed &a, Fixed &b);
 	static Fixed const &max(Fixed const &a, Fixed const &b);
 
-	friend std::ostream &operator<<(std::ostream &os, Fixed const &fixed);
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
 	float toFloat(void) const;
 	int toInt(void) const;
 };
+
+std::ostream &operator<<(std::ostream &os, Fixed const &fixed);
 
 #endif // FIXED_HPP

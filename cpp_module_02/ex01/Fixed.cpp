@@ -37,12 +37,6 @@ Fixed& Fixed::operator=(const Fixed& other)
 	return (*this);
 }
 
-std::ostream &operator<<(std::ostream &os, Fixed const &fixed)
-{
-	os << fixed.toFloat();
-	return (os);
-}
-
 int Fixed::getRawBits(void) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
@@ -57,7 +51,7 @@ void Fixed::setRawBits(int const raw)
 
 float Fixed::toFloat(void) const
 {
-	return ((float)this->value / (1 << Fixed::bits));
+	return (static_cast<float>(this->value) / (1 << Fixed::bits));
 }
 
 int Fixed::toInt(void) const
@@ -65,3 +59,8 @@ int Fixed::toInt(void) const
 	return (this->value >> Fixed::bits);
 }
 
+std::ostream &operator<<(std::ostream &os, Fixed const &fixed)
+{
+	os << fixed.toFloat();
+	return (os);
+}

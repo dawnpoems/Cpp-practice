@@ -13,13 +13,15 @@ public :
 	Fixed(int const value);
 	Fixed(float const value);
 	Fixed(Fixed const &fixed);
-	~Fixed();
 	Fixed &operator=(Fixed const &fixed);
-	friend std::ostream &operator<<(std::ostream &os, Fixed const &fixed);
+	~Fixed();
+
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
 	float toFloat(void) const;
 	int toInt(void) const;
 };
+
+std::ostream &operator<<(std::ostream &os, Fixed const &fixed);
 
 #endif // FIXED_HPP
