@@ -1,24 +1,23 @@
 #include "AMateria.hpp"
+#include <iostream>
 
-AMateria::AMateria() : type(""), xp(0)
+AMateria::AMateria() : type("Normal")
 {
 }
 
-AMateria::AMateria(std::string const & type) : type(type), xp(0)
+AMateria::AMateria(std::string const & type) : type(type)
 {
 }
 
-AMateria::AMateria(AMateria const &amateria)
+AMateria::AMateria(AMateria const &amateria) : type(amateria.getType())
 {
-	*this = amateria;
 }
 
 AMateria &AMateria::operator=(AMateria const &amateria)
 {
-	if (this != &amateria)
+	if (this->type != amateria.getType())
 	{
-		this->type = amateria.type;
-		this->xp = amateria.xp;
+		std::cout << "Different types of Materia cannot be assigned." << std::endl;
 	}
 	return *this;
 }
@@ -35,5 +34,4 @@ std::string const &AMateria::getType() const
 void AMateria::use(ICharacter &target)
 {
 	(void)target;
-	this->xp += 10;
 }

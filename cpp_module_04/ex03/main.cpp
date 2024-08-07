@@ -25,5 +25,6 @@ int main()
 	delete bob;
 	delete me;
 	delete src;
+
 	return 0;
 }

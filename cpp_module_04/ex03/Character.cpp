@@ -1,6 +1,6 @@
 #include "Character.hpp"
 
-Character::Character() : name("")
+Character::Character() : name("NoName")
 {
 	for (int i = 0; i < 4; i++)
 		this->inventory[i] = NULL;
@@ -14,7 +14,13 @@ Character::Character(std::string const &name) : name(name)
 
 Character::Character(Character const &character)
 {
-	*this = character;
+	for (int i = 0; i < 4; i++)
+	{
+		if (character.inventory[i])
+			this->inventory[i] = character.inventory[i]->clone();
+		else
+			this->inventory[i] = NULL;
+	}
 }
 
 Character &Character::operator=(Character const &character)
@@ -26,7 +32,11 @@ Character &Character::operator=(Character const &character)
 		{
 			if (this->inventory[i])
 				delete this->inventory[i];
-			this->inventory[i] = character.inventory[i];
+
+			if (character.inventory[i])
+				this->inventory[i] = character.inventory[i]->clone();
+			else
+				this->inventory[i] = NULL;
 		}
 	}
 	return *this;
@@ -66,6 +76,6 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter &target)
 {
-	if (idx >= 0 && idx < 4 && this->inventory[idx])
+	if (0 <= idx && idx < 4 && this->inventory[idx])
 		this->inventory[idx]->use(target);
 }

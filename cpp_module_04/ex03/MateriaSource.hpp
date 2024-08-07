@@ -15,8 +15,6 @@ public:
 
 	void learnMateria(AMateria *materia);
 	AMateria *createMateria(std::string const &type);
-
-	void deleteMaterias();
 };
 
 #endif // MATERIASOURCE_HPP

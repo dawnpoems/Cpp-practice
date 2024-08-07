@@ -9,7 +9,6 @@ class AMateria
 {
 protected:
 	std::string type;
-	unsigned int xp;
 	
 public:
 	AMateria();
